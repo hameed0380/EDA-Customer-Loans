@@ -10,6 +10,33 @@ class RDSDatabaseConnector:
     # def show_creds(self):
     #     print(self.loaded_creds)
 
+# template ideas
+
+# DATABASE_TYPE = 'postgresql'
+# DBAPI = 'psycopg2'
+# HOST = 'localhost'
+# USER = 'postgres'
+# PASSWORD = #'password'
+# DATABASE = 'pagila'
+# PORT = 5432
+# engine = create_engine(f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}")
+
+    # initialises a SQLAlchemy engine from the credentials provided from class
+    def initialise_engine(self):
+        
+        # dictionary 
+        creds = self.credential
+
+        DATABASE_TYPE = 'postgresql'
+        DBAPI = 'psycopg2'
+        HOST = creds["RDS_HOST"]
+        PASSWORD = ["RDS_PASSWORD"]
+        USER = ["RDS_USER"]
+        DATABASE = ["RDS_DATABASE"]
+        PORT = ["RDS_PORT"]
+
+        engine = create_engine(f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}")
+        return engine
 
 
 
@@ -18,7 +45,7 @@ class RDSDatabaseConnector:
 def load_file():
     with open('credentials.yaml', 'r') as file:
         credential = yaml.safe_load(file)
-#    print(credential)
+    print(credential)
     return credential
 
 
