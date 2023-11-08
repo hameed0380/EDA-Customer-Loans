@@ -1,5 +1,7 @@
 import yaml
 from sqlalchemy import create_engine
+import pandas as pd
+import psycopg2
 
 
 class RDSDatabaseConnector:
@@ -21,34 +23,36 @@ class RDSDatabaseConnector:
 # PORT = 5432
 # engine = create_engine(f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}")
 
-    # initialises a SQLAlchemy engine from the credentials provided from class
     def initialise_engine(self):
-        
+        '''initialises a SQLAlchemy engine from the credentials provided from class'''
         # dictionary 
-        creds = self.credential
+        creds = self.loaded_creds
 
         DATABASE_TYPE = 'postgresql'
-        DBAPI = 'psycopg2'
         HOST = creds["RDS_HOST"]
         PASSWORD = ["RDS_PASSWORD"]
         USER = ["RDS_USER"]
         DATABASE = ["RDS_DATABASE"]
-        PORT = ["RDS_PORT"]
+        PORT = 5432
 
-        engine = create_engine(f"{DATABASE_TYPE}+{DBAPI}://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}")
+        engine = create_engine(f"{DATABASE_TYPE}+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}")
         return engine
-
-
+    
+    def extract_dataframe(self):
+        pass
 
 
 
 def load_file():
+    '''Load  credentials file to access the database'''
     with open('credentials.yaml', 'r') as file:
         credential = yaml.safe_load(file)
     print(credential)
     return credential
 
 
-#load_file()
-credentionals_passed = load_file()
-# RDSDatabaseConnector(credentionals_passed).show_creds()
+if __name__ == '__main__':
+    # Load credentials from your YAML file
+    credentionals_passed = load_file()
+    RDSDatabaseConnector(credentionals_passed).initialise_engine()
+
