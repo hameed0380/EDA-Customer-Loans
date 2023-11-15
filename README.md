@@ -19,14 +19,15 @@ Exploratory Data Analysis - Customer Loans in Finance
 Run the project using the instructions provided in the "Installation" section.
 
 ## File Structure
-project_root/
-│
-├── main.py
-├── db_utils.py
-├── requirements.txt
-├── data.csv
-├── README.md
-└── config/
-    └── credentials.yaml
+    .
+    project_root/
+    │
+    ├── main.py
+    ├── db_utils.py
+    ├── requirements.txt
+    ├── data.csv
+    ├── README.md
+    └── config/
+        └── credentials.yaml
 
 ## License
