@@ -61,3 +61,4 @@ class DataFrameInfo:
         missing_value_df = missing_value_df.loc[missing_value_df["percent_missing"] != 0]
         # Only get columns that having missing values
         return missing_value_df
+        

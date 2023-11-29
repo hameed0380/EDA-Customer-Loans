@@ -50,5 +50,18 @@ class DataTransformation:
         return self.df
     
     def convert_to_float(self, column):
+        '''
+        Converts column to float dtype
+
+        column: name of the pandas df column being converted
+        '''
         self.df[column] = self.df[column].astype(float)
         return self.df
+
+    def drop_column(self, column):
+        '''
+        Returns dropped columns
+
+        column: name of the pandas df column being dropped
+        '''
+        return self.df.drop(column, axis=1, inplace=True)
