@@ -65,3 +65,19 @@ class DataTransformation:
         column: name of the pandas df column being dropped
         '''
         return self.df.drop(column, axis=1, inplace=True)
+    
+    def impute_columns(self, column, impute_type):
+        '''
+        Imputes DataFrame columns. 
+        Must decide whether to impute column with the median or the mean and impute the NULL values. 
+        
+        column: name of the pandas df column being imputed
+        impute_type: whether to impute median or mean
+        '''
+        if impute_type == "median":
+            self.df[column].fillna(self.df[column].median(), inplace=True)
+        elif impute_type == "mean":
+            self.df[column].fillna(self.df[column].median(), inplace=True)
+        else:
+            print("Please enter a valid imputation method.\n Either median or mean.")
+        return self.df
