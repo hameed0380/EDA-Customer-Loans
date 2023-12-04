@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 class DataFrameInfo:
     ''' To generate useful information about your DataFrame'''
@@ -62,3 +63,11 @@ class DataFrameInfo:
         # Only get columns that having missing values
         return missing_value_df
         
+class Plotter:
+    def __init__(self, df):
+        self.df = df
+
+    def histogram(self, column, bins):
+        plt.hist(self.df[column], bins=bins)
+        plt.show()
+
