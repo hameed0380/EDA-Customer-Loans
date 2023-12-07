@@ -1,4 +1,6 @@
 import pandas as pd
+from scipy import stats
+from data_info import DataFrameInfo
 
 
 class DataTransformation:
@@ -81,3 +83,4 @@ class DataTransformation:
         else:
             print("Please enter a valid imputation method.\n Either median or mean.")
         return self.df
+    
