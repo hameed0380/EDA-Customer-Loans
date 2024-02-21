@@ -10,9 +10,6 @@ class RDSDatabaseConnector:
         self.loaded_creds = self.load_file(credential)
         self.engine = self.initialise_engine()
 
-    # def show_creds(self):
-    #     print(self.loaded_creds)
-
     def load_file(self, credential):
         '''Load credentials file to access the database
         
@@ -31,7 +28,6 @@ class RDSDatabaseConnector:
 
     def initialise_engine(self):
         '''initialises a SQLAlchemy engine from the credentials provided from class'''
-        # dictionary 
         creds = self.loaded_creds
 
         DATABASE_TYPE = 'postgresql'
@@ -63,11 +59,6 @@ class RDSDatabaseConnector:
         '''Load the data csv as a pandas dataframe'''
         df = pd.read_csv(data_csv)
         return df
-
-
-
-
-
 
 
 if __name__ == '__main__':
