@@ -47,8 +47,11 @@ Run the project using the instructions provided in the "Installation" section.
     │
     ├── main.py
     ├── db_utils.py
+    ├── data_info.py
     ├── transformation.py
+    ├── skew_transformation.py
     ├── requirements.txt
+    ├── loan_data_dict.md
     ├── data.csv
     ├── README.md
     └── config/
